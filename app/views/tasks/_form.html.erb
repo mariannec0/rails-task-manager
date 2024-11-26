@@ -1,0 +1,12 @@
+<h2><%= task.new_record? ? "New task" : "Edit task" %></h2>
+<%= form_with model: task do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <%= f.label :details %>
+  <%= f.text_field :details %>
+  <% unless task.new_record? %>
+    <%= f.label :completed, "Completed" %>
+    <%= f.check_box :completed %>
+  <% end %>
+  <%= f.submit task.new_record? ? "Create task" : "Update task" %>
+<% end %>
